@@ -1,6 +1,4 @@
-# challenge-03
-Third Challenge assignment for the University of Arizona Bootcamp
-# challenge-02 Advanced CSS Challenge: Professional Portfolio
+# challenge-03 Javascript Challenge: Password Generator
 
 ## **Table of Contents**
 * [The Repository](#the-repository)
