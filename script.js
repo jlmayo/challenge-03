@@ -1,5 +1,6 @@
 // Assignment code here
 var generateBtn = document.querySelector("#generate");
+console.log(generateBtn);
 
 var numberChoices = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
 var symbolChoices = ["*", "&", "^", "%", "$", "#", "@", "!", "~", "{", "}", "?", "<", ">", "."]
@@ -12,12 +13,14 @@ var userSelectsSym;
 var userSelectsLowC;
 var userSelectsUppC;
 
+
 function generatePassword() {
-
+  // making a request for USER input
   var userSelect = window.prompt("Please choose a password length.")
-
+  // we are parsing the input (converting the input to what we want to work with)
   var passwordLength = parseInt(userSelect)
 
+  // validation (are we getting what we expect)
   if (isNaN(passwordLength)) {
     window.alert("That is not a number. Please try again.")
     return
@@ -28,75 +31,96 @@ function generatePassword() {
     return
   }
 
+  // gathering more USER data (TRUE or FALSE)
   var userSelectsNum = window.confirm("Should this password include numbers?")
   var userSelectsSym = window.confirm("Should this password include symbols?")
   var userSelectsLowC = window.confirm("Should this password include lowercase letters?")
   var userSelectsUppC = window.confirm("Should this password include uppercase letters?")
   
+  // Data Container 
+  var passwordChoices = "";
 
   if (!userSelectsNum && !userSelectsSym && !userSelectsLowC && !userSelectsUppC) {
-    window.alert("You must choose a criteria. Please try again.")
+    window.alert("You must choose a criteria. Please try again.");
+    return
   }
    else if (userSelectsNum && userSelectsSym && userSelectsLowC && userSelectsUppC) {
-    passwordChoices = character.concat(numberChoices, symbolChoices, alphaChoicesLower, alphaChoicesUpper);
+    passwordChoices = passwordChoices.concat(numberChoices, symbolChoices, alphaChoicesLower, alphaChoicesUpper);
+    console.log(passwordChoices);
   }
    else if (userSelectsNum && userSelectsSym && userSelectsLowC) {
-    passwordChoices = character.concat(numberChoices, symbolChoices, alphaChoicesLower);
+    passwordChoices = passwordChoices.concat(numberChoices, symbolChoices, alphaChoicesLower);
   }
    else if (userSelectsNum && userSelectsSym && userSelectsUppC) {
-      passwordChoices = character.concat(numberChoices, symbolChoices, alphaChoicesUpper);
+      passwordChoices = passwordChoices.concat(numberChoices, symbolChoices, alphaChoicesUpper);
   }
   else if (userSelectsNum && userSelectsLowC && userSelectsUppC) {
-    passwordChoices = number.concat(numberChoices, alphaChoicesLower, alphaChoicesUpper);
+    passwordChoices = passwordChoices.concat(numberChoices, alphaChoicesLower, alphaChoicesUpper);
   }
   else if (userSelectsSym && userSelectsLowC && userSelectsUppC) {
-    passwordChoices = character.concat(symbolChoices, alphaChoicesLower, alphaChoicesUpper);
+    passwordChoices = passwordChoices.concat(symbolChoices, alphaChoicesLower, alphaChoicesUpper);
   }
   else if (userSelectsNum && userSelectsSym) {
-    passwordChoices = character.concat(numberChoices, symbolChoices);
+    passwordChoices = passwordChoices.concat(numberChoices, symbolChoices);
   }
   else if (userSelectsNum && userSelectsLowC) {
-    passwordChoices = character.concat(numberChoices, alphaChoicesLower);
+    passwordChoices = passwordChoices.concat(numberChoices, alphaChoicesLower);
   }
   else if (userSelectsNum && userSelectsUppC) {
-    passwordChoices = character.concat(numberChoices, alphaChoicesUpper);
+    passwordChoices = passwordChoices.concat(numberChoices, alphaChoicesUpper);
   }
   else if (userSelectsSym && userSelectsLowC) {
-    passwordChoices = character.concat(symbolChoices, alphaChoicesLower);
+    passwordChoices = passwordChoices.concat(symbolChoices, alphaChoicesLower);
   }
   else if (userSelectsSym && userSelectsUppC) {
-    passwordChoices = character.concat(symbolChoices, alphaChoicesUpper);
+    passwordChoices = passwordChoices.concat(symbolChoices, alphaChoicesUpper);
   }
   else if (userSelectsNum) {
-    passwordChoices = character.concat(numberChoices);
+    passwordChoices = passwordChoices.concat(numberChoices);
   }
   else if (userSelectsSym && userSelectsLowC) {
-    passwordChoices = character.concat(symbolChoices);
+    passwordChoices = passwordChoices.concat(symbolChoices);
   }
   else if (userSelectsLowC) {
-    passwordChoices = character.concat(alphaChoicesLower);
+    passwordChoices = passwordChoices.concat(alphaChoicesLower);
   }
   else if (userSelectsUppC) {
-    passwordChoices = character.concat(alphaChoicesUpper);
+    passwordChoices = passwordChoices.concat(alphaChoicesUpper);
   };
 
-  var passwordComplete = [];
+  // Look into using a SWITCH method
+  // switch(function(input) {
+        // case(numberChoices):
+            // run method X
+  //})
 
+  // Self validation that we are getting the result we expect
+  console.log(passwordChoices);
+
+  // Finale dataset container
+  var passwordComplete = [];  //  --> ["a", "5", "Q", "%"];
+
+  // making sure we gather enough values , that the USER requested
   for (var i = 0; i < passwordLength; i++) {
     var randomList = passwordChoices[Math.floor(Math.random() * passwordChoices.length)];
     passwordComplete.push(randomList);
   }
 
- return passwordComplete.join("");
+  // Turning our result Array into a STRING 
+ return passwordComplete.join("");    // --> "a5Q%"
 }
 
 // Write password to the #password input
 function writePassword() {
+  // finding a result
   var password = generatePassword();
+  // grabbing reference to an HTML element
   var passwordText = document.querySelector("#password");
+  // updating the DOM (the HTML)
+  //passwordText.textContent(password);
+  passwordText.textContent = password;
 }
   
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
