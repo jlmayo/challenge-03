@@ -31,5 +31,9 @@ Most of the requirements were met except the most important one, which is actual
 
 You can find my site at [Challenge-03](https://jlmayo.github.io/challenge-03/)
 
+### **Credit**
+Found a great tutor who helped me figure out the errors in my code.
+
+
 ## **Completed Project**
 ![Screenshot of Password Generator](assets/_Users_jennifermayo_Documents_AZBootcamp_projects_challenge-03_index.html.png)
