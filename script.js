@@ -95,14 +95,21 @@ function generatePassword() {
   //})
 
   // Self validation that we are getting the result we expect
-  console.log(passwordChoices);
+  console.log(passwordChoices);  // [1, 2, 3, 4, 5, 6, 7]  --> "1,2,3,4,5,6"
+  console.log(typeof passwordChoices);
+  // convert this STRING into and ARRAY (datatype converstion)
+  // passwordChoices.split(",");
+  var choicesArr = passwordChoices.split(",");
+  console.log(choicesArr);
+  console.log(typeof choicesArr);
+
 
   // Finale dataset container
   var passwordComplete = [];  //  --> ["a", "5", "Q", "%"];
 
   // making sure we gather enough values , that the USER requested
   for (var i = 0; i < passwordLength; i++) {
-    var randomList = passwordChoices[Math.floor(Math.random() * passwordChoices.length)];
+    var randomList = choicesArr[Math.floor(Math.random() * choicesArr.length)];
     passwordComplete.push(randomList);
   }
 
