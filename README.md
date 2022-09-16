@@ -26,7 +26,7 @@ Starter code was provided for this project. I wrote (and rewrote and rewrote) th
 * The password does not generate in the box.
 
 ### **Result**
-Most of the requirements were met except the most important one, which is actually generating the password. I have looked at so many examples and tried this so many different ways that I think I must have confounded some of the ways to do this.
+Most of the requirements were met except the most important one, which is actually generating the password. As of the 9/16/22 update and resubmit, this issue has been resolved. Password now generates.
 
 
 You can find my site at [Challenge-03](https://jlmayo.github.io/challenge-03/)
